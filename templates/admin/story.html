@@ -1,0 +1,10 @@
+{% extends 'admin/dashboard.html' %}
+{% block content %}
+<h2>Our Story</h2>
+
+<form method="POST">{% csrf_token %}
+<textarea name="content">{{ story.content }}</textarea>
+<button>Save</button>
+</form>
+
+{% endblock %}

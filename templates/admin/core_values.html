@@ -1,0 +1,24 @@
+{% extends 'admin/dashboard.html' %}
+
+{% block content %}
+
+<h2>Core Values</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="value" placeholder="Enter value">
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<ul>
+    {% for v in values %}
+        <li>
+            {{ v.value }}
+            <a href="{% url 'delete_core_value' v.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
